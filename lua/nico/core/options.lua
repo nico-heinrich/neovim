@@ -9,3 +9,6 @@ vim.opt.cursorline = true
 vim.opt.backspace = "indent,eol,start"
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.iskeyword:append("-")
+
+-- disable Netrw
+vim.g.loaded_netrwPlugin = 0
