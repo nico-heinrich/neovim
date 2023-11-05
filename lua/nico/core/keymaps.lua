@@ -20,3 +20,6 @@ vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true })
 
 -- get out of terminal mode with Esc
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
+
+-- set filetype shortcut
+vim.cmd[[cnoreabbrev sft setfiletype]]
