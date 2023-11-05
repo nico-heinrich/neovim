@@ -3,7 +3,6 @@ return {
   tag = '0.1.4',
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "BurntSushi/ripgrep",
   },
   config = function()
     vim.keymap.set("n", "<leader><leader>", ":Telescope find_files<CR>", { noremap = true })
