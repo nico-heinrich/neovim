@@ -12,6 +12,3 @@ vim.opt.iskeyword:append("-")
 
 -- disable Netrw
 vim.g.loaded_netrwPlugin = 0
-
--- open neo-tree on startup
-vim.cmd("autocmd VimEnter * Neotree show")
