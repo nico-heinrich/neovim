@@ -1,8 +1,4 @@
 return {
-  {
-    "evanleck/vim-svelte",
-  },
-  {
-    "mustache/vim-mustache-handlebars",
-  }
+  "evanleck/vim-svelte",
+  "mustache/vim-mustache-handlebars",
 }
