@@ -116,7 +116,7 @@ return {
     lspconfig["emmet_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
-      filetypes = { "html", "css", "sass", "scss", "less", "svelte" },
+      filetypes = { "html", "css", "sass", "scss", "less", "svelte", "handlebars" },
     })
 
     -- configure python server
