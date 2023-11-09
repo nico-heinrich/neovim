@@ -7,5 +7,6 @@
     "MunifTanjim/nui.nvim",
   },
   config = function()
-    vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", { noremap = true }) end,
+    vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", { noremap = true })
+  end,
 }
