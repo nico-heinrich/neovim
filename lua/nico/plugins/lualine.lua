@@ -5,7 +5,10 @@ local function Get_buffer_path()
   if is_readable_file then
     return vim.fn.fnamemodify(file_path, ':t')
   else
-    return vim.fn.fnamemodify(file_path, ':h')
+    local pattern = "oil:///(.+)"
+    local clean_path = string.match(file_path, pattern)
+
+    return clean_path or ""
   end
 end
 
