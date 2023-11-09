@@ -11,4 +11,3 @@ vim.opt.clipboard:append("unnamedplus")
 vim.opt.iskeyword:append("-")
 
 vim.g.loaded_netrwPlugin = 1 -- Disable Netrw
-
