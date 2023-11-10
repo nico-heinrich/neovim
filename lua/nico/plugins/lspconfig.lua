@@ -98,8 +98,8 @@ return {
     -- configure svelte server
     lspconfig["svelte"].setup({
       capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        on_attach(client, bufnr)
+      on_attach = function(client)
+        on_attach(client)
 
         vim.api.nvim_create_autocmd("BufWritePost", {
           pattern = { "*.js", "*.ts" },
@@ -128,8 +128,8 @@ return {
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        on_attach(client, bufnr)
+      on_attach = function(client)
+        on_attach(client)
       end,
       settings = { -- custom settings for lua
         Lua = {
