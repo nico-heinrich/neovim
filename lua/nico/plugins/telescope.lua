@@ -3,6 +3,7 @@ return {
   tag = "0.1.4",
   dependencies = {
     "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons",
   },
   config = function()
     vim.keymap.set("n", "<leader><space>", ":Telescope find_files<CR>", { noremap = true })
