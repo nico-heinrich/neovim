@@ -1,0 +1,27 @@
+# Handlebars if block
+snippet hbs:if
+				{{#if ${1: condition}}}
+					${2}
+				{{/if}}
+
+# Handlebars if else block
+snippet hbs:ifelse
+				{{#if ${1: condition}}}
+					${2}
+				{{else}}
+					${3}
+				{{/if}}
+
+# Handlebars else
+snippet hbs:else
+				{{else}}
+
+# Handlebars else if
+snippet hbs:elseif
+				{{else if}}
+
+# Handlebars each block
+snippet hbs:each
+				{{#each ${1: items}}}
+					${2}
+				{{/each}}

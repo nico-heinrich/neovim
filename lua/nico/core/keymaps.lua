@@ -23,5 +23,3 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
 -- Set filetype shortcuts
 vim.cmd[[cnoreabbrev sft setfiletype]] -- :sft => :setfiletype
-vim.keymap.set("n", "<leader>html", ":setfiletype html<CR>", { noremap = true }) -- Set file type to HTML
-vim.keymap.set("n", "<leader>rft", ":setfiletype cpp<CR>", { noremap = true }) -- Reset file type
