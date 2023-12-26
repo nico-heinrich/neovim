@@ -4,6 +4,8 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
+    "BurntSushi/ripgrep",
+    "sharkdp/fd",
   },
   config = function()
     vim.keymap.set("n", "<leader><space>", ":Telescope find_files<CR>", { noremap = true })

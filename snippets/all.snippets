@@ -25,3 +25,27 @@ snippet hbs:each
 				{{#each ${1: items}}}
 					${2}
 				{{/each}}
+
+# Simple reset for CSS
+snippet css:reset
+				*, *::before, *::after {
+					box-sizing: border-box;
+				}
+
+				img, picture, svg, video {
+					display: block;
+					max-width: 100%;
+				}
+
+				input, textarea, button, select {
+					font: inherit;
+				}
+
+				a {
+					color: inherit;
+				}
+
+				body {
+					min-height: 100vh;
+					margin: 0;
+				}
