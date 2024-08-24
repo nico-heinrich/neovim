@@ -41,8 +41,10 @@ vim.cmd('highlight SignColumn guifg='..colors.fg..' guibg='..colors.bg) -- Sign 
 vim.cmd('highlight Search guifg='..colors.fg..' guibg='..colors.search) -- Search
 
 -- Cursor & Selection
+vim.cmd('highlight Cursor guifg='..colors.bg..' guibg='..colors.bg_cursor) -- Cursor
 vim.cmd('highlight CursorLine guibg='..colors.bg_highlight) -- Cursor line
 vim.cmd('highlight Visual guibg='..colors.bg_highlight) -- Visual selection
+vim.cmd('highlight MatchParen guifg='..colors.bg..' guibg='..colors.fg) -- Matched parenthesis
 
 -- Highlight groups
 vim.cmd('highlight Comment guifg='..colors.fg_light) -- Comment
@@ -56,6 +58,8 @@ vim.cmd('highlight Underlined guifg='..colors.accent1) -- Underlined
 vim.cmd('highlight String guifg='..colors.accent3) -- String
 vim.cmd('highlight Number guifg='..colors.accent4) -- Number
 vim.cmd('highlight Ignore guifg='..colors.bg) -- Ignore
+vim.cmd('highlight Todo guifg='..colors.warn..' guibg='..colors.warn_bg) -- Todo
+
 
 -- Messages
 vim.cmd('highlight DiagnosticError guifg='..colors.error..' guibg='..colors.error_bg) -- Error
@@ -69,5 +73,6 @@ vim.cmd('highlight DiagnosticSignHint guifg='..colors.hint) -- Hint sign
 vim.cmd('highlight DiagnosticOk guifg='..colors.ok..' guibg='..colors.ok_bg) -- Ok
 vim.cmd('highlight DiagnosticSignOk guifg='..colors.ok) -- Ok sign
 
--- Copilot
+-- Plugins
 vim.cmd('highlight CopilotSuggestion guifg='..colors.fg_light) -- Copilot suggestion
+vim.cmd('highlight TelescopeSelection guibg='..colors.bg_highlight) -- Telescope selection
