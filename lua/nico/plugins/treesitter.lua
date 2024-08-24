@@ -5,6 +5,10 @@ return {
     local configs = require("nvim-treesitter.configs")
 
     configs.setup({
+        context_commentstring = {
+          enable = true,
+          enable_autocmd = false,
+        },
         ensure_installed = {
           "c",
           "lua",

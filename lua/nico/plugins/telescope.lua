@@ -6,11 +6,14 @@ return {
     "nvim-tree/nvim-web-devicons",
     "BurntSushi/ripgrep",
     "sharkdp/fd",
+    "nvim-telescope/telescope-ui-select.nvim",
   },
   config = function()
     vim.keymap.set("n", "<leader><space>", ":Telescope find_files<CR>", { noremap = true })
     vim.keymap.set("n", "<leader>,", ":Telescope buffers<CR>", { noremap = true })
     vim.keymap.set("n", "<leader>/", ":Telescope live_grep<CR>", { noremap = true })
+
+    require("telescope").load_extension("ui-select")
   end,
 }
 
