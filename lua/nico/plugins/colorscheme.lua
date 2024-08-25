@@ -1,8 +1,8 @@
 return {
-  "morhetz/gruvbox",
-  name = "gruvbox",
+  "folke/tokyonight.nvim",
+  name = "colorscheme",
   priority = 1000,
   config = function()
-    vim.cmd.colorscheme "gruvbox"
+    vim.cmd.colorscheme "tokyonight"
   end
 }
