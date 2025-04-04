@@ -28,27 +28,48 @@ snippet hbs:each
 
 # Simple reset for CSS
 snippet css:reset
-				*, *::before, *::after {
-					box-sizing: border-box;
-				}
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-				img, picture, svg, video {
-					display: block;
-					max-width: 100%;
-				}
+        html, body {
+            height: 100%;
+            font-size: 100%;
+            line-height: 1.5;
+            font-family: system-ui, sans-serif;
+        }
 
-				input, textarea, button, select {
-					font: inherit;
-				}
+        img,
+        picture,
+        video,
+        canvas,
+        svg {
+            display: block;
+            max-width: 100%;
+        }
 
-				a {
-					color: inherit;
-				}
+        input,
+        button,
+        textarea,
+        select {
+            font: inherit;
+        }
 
-				body {
-					min-height: 100vh;
-					margin: 0;
-				}
+        button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
 # Throttle function
 snippet	throttle
@@ -64,3 +85,9 @@ snippet	throttle
 						}
 					};
 				}
+
+# Typescript tags
+snippet ts
+        <script lang="ts">
+          ${1}
+        </script>

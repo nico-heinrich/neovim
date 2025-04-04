@@ -1,5 +1,7 @@
 M = {}
 
+-- HTML class manipulation
+
 -- Jump to class attribute
 function M.Jump_to_class()
   local line = vim.fn.getline('.')
@@ -48,17 +50,6 @@ function M.Delete_class()
     vim.fn.execute('normal! f"')
     vim.fn.execute('normal! d')
     vim.fn.setpos('.', pos)
-  end
-end
-
--- Remove all lines with console.logs in JavaScript files
-function M.Delete_console_logs()
-  local line_count = vim.fn.line('$')
-  for i = 1, line_count do
-    local line = vim.fn.getline(i)
-    if line:match('console.log') then
-      vim.fn.execute(i .. 'd')
-    end
   end
 end
 
