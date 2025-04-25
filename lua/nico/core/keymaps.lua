@@ -39,9 +39,9 @@ vim.cmd[[cnoreabbrev sft setfiletype]] -- :sft => :setfiletype
 vim.keymap.set("v", "''", [[<Esc>:%s/'/"/g<CR>]], { noremap = true })
 
 -- HTML class manipulation
-vim.api.nvim_set_keymap('n', '<leader>ic', ':lua functions.Insert_class()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>c', ':lua functions.Jump_to_class()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>Dc', ':lua functions.Delete_class()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ic', ':lua functions.Insert_attribute("class")<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>c', ':lua functions.Jump_to_attribute("class")<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>dc', ':lua functions.Delete_attribute("class")<CR>', { noremap = true, silent = true })
 
 -- Restart LSP
 vim.api.nvim_set_keymap('n', '<leader>l', ':LspRestart<CR>', { noremap = true, silent = true })
