@@ -69,20 +69,6 @@ return {
 			local hl = "DiagnosticSign" .. type
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
-		-- Ensure diagnostic messages wrap in floating windows
-		vim.diagnostic.config({
-			virtual_text = false, -- disable inline text for a cleaner look
-			float = {
-				wrap = true, -- enable wrapping
-				max_width = 80, -- adjust width as needed
-			},
-		})
-		vim.keymap.set(
-			"n",
-			"<leader>d",
-			vim.diagnostic.open_float,
-			{ noremap = true, silent = true, desc = "Show diagnostics in float" }
-		)
 
 		-- configure html server
 		lspconfig["html"].setup({
@@ -92,7 +78,7 @@ return {
 		})
 
 		-- configure typescript server with plugin
-		lspconfig["ts_ls"].setup({
+		lspconfig["tsserver"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
@@ -107,14 +93,14 @@ return {
 		lspconfig["tailwindcss"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			flags = { debounce_text_changes = 150 },
 		})
 
 		-- configure svelte server
 		lspconfig["svelte"].setup({
 			capabilities = capabilities,
-			on_attach = function(client, bufnr)
-				on_attach(bufnr)
+			on_attach = function(client)
+				on_attach(client)
+
 				vim.api.nvim_create_autocmd("BufWritePost", {
 					pattern = { "*.js", "*.ts" },
 					callback = function(ctx)
@@ -130,7 +116,7 @@ return {
 		lspconfig["emmet_ls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			filetypes = { "html", "css", "sass", "scss", "less", "svelte", "glimmer", "vue" },
+			filetypes = { "html", "css", "sass", "scss", "less", "svelte", "glimmer" },
 		})
 
 		-- configure python server
@@ -142,13 +128,17 @@ return {
 		-- configure lua server (with special settings)
 		lspconfig["lua_ls"].setup({
 			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = {
+			on_attach = function(client)
+				on_attach(client)
+			end,
+			settings = { -- custom settings for lua
 				Lua = {
+					-- make the language server recognize "vim" global
 					diagnostics = {
 						globals = { "vim" },
 					},
 					workspace = {
+						-- make language server aware of runtime files
 						library = {
 							[vim.fn.expand("$VIMRUNTIME/lua")] = true,
 							[vim.fn.stdpath("config") .. "/lua"] = true,
