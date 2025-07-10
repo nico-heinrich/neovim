@@ -45,3 +45,6 @@ vim.api.nvim_set_keymap('n', '<leader>dc', ':lua functions.Delete_attribute("cla
 
 -- Restart LSP
 vim.api.nvim_set_keymap('n', '<leader>l', ':LspRestart<CR>', { noremap = true, silent = true })
+
+-- Format code
+vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.formatting() end)
