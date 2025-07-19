@@ -24,7 +24,6 @@ return {
 				"tailwindcss",
 				"svelte",
 				"lua_ls",
-				"emmet_ls",
 				"pyright",
 			},
 			-- auto-install configured servers (with lspconfig)

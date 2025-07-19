@@ -112,13 +112,6 @@ return {
 			end,
 		})
 
-		-- configure emmet language server
-		lspconfig["emmet_ls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			filetypes = { "html", "css", "sass", "scss", "less", "svelte", "glimmer" },
-		})
-
 		-- configure python server
 		lspconfig["pyright"].setup({
 			capabilities = capabilities,

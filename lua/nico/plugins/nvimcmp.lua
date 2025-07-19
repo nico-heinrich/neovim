@@ -18,6 +18,10 @@ return {
 		require("luasnip.loaders.from_vscode").lazy_load()
 		require("luasnip.loaders.from_snipmate").lazy_load()
 
+		-- extend filetype for svelte & vue to use html snippets
+		require("luasnip").filetype_extend("svelte", { "html" })
+		require("luasnip").filetype_extend("vue", { "html" })
+
 		cmp.setup({
 			completion = {
 				completeopt = "menu,menuone,preview",
