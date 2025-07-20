@@ -1,4 +1,4 @@
-functions = require('nico.core.functions')
+functions = require("nico.core.functions")
 
 vim.g.mapleader = " "
 
@@ -24,7 +24,7 @@ vim.keymap.set("n", "H", "_", { noremap = true })
 vim.keymap.set("n", "L", "$", { noremap = true })
 
 -- Paste from initial yank
-vim.keymap.set("n", "<leader>p", "\"0p", { noremap = true })
+vim.keymap.set("n", "<leader>p", '"0p', { noremap = true })
 
 -- Get out of terminal mode with Esc
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
@@ -33,18 +33,15 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 vim.keymap.set("n", "|", ":vs<CR>", { noremap = true })
 
 -- Set filetype shortcuts
-vim.cmd[[cnoreabbrev sft setfiletype]] -- :sft => :setfiletype
+vim.cmd([[cnoreabbrev sft setfiletype]]) -- :sft => :setfiletype
 
 -- Replace all ' with " in selection
 vim.keymap.set("v", "''", [[<Esc>:%s/'/"/g<CR>]], { noremap = true })
 
--- HTML class manipulation
-vim.api.nvim_set_keymap('n', '<leader>ic', ':lua functions.Insert_attribute("class")<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>c', ':lua functions.Jump_to_attribute("class")<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>dc', ':lua functions.Delete_attribute("class")<CR>', { noremap = true, silent = true })
-
 -- Restart LSP
-vim.api.nvim_set_keymap('n', '<leader>l', ':LspRestart<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>l", ":LspRestart<CR>", { noremap = true, silent = true })
 
 -- Format code
-vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.formatting() end)
+vim.keymap.set("n", "<leader>f", function()
+	vim.lsp.buf.formatting()
+end)
