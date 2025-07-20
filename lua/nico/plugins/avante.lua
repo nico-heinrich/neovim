@@ -21,7 +21,7 @@ return {
 		providers = {
 			ollama = {
 				endpoint = "http://127.0.0.1:11434", -- Note that there is no /v1 at the end.
-				model = "deepseek-coder:latest",
+				model = "codellama:7b",
 			},
 			claude = {
 				endpoint = "https://api.anthropic.com",
