@@ -1,5 +1,3 @@
-functions = require("nico.core.functions")
-
 vim.g.mapleader = " "
 
 -- Resource .vimrc

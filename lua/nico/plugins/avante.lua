@@ -17,8 +17,12 @@ return {
 	opts = {
 		-- add any opts here
 		-- for example
-		provider = "claude",
+		provider = "ollama", -- default provider
 		providers = {
+			ollama = {
+				endpoint = "http://127.0.0.1:11434", -- Note that there is no /v1 at the end.
+				model = "deepseek-coder:latest",
+			},
 			claude = {
 				endpoint = "https://api.anthropic.com",
 				model = "claude-sonnet-4-20250514",
