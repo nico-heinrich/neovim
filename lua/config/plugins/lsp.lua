@@ -3,17 +3,23 @@ return {
   config = function()
     local lspconfig = require("lspconfig")
 
-    -- Set custom diagnostic signs with squares
-    local signs = { Error = "", Warning = "", Hint = "", Information = "" }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
-
-    -- Enable basic diagnostic display
+    -- Enable basic diagnostic display with custom signs
     vim.diagnostic.config({
       virtual_lines = true,
-      signs = true,
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = "",
+          [vim.diagnostic.severity.WARN] = "",
+          [vim.diagnostic.severity.HINT] = "",
+          [vim.diagnostic.severity.INFO] = "",
+        },
+        numhl = {
+          [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+          [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+          [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+          [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+        },
+      },
       underline = true,
       update_in_insert = false,
     })
