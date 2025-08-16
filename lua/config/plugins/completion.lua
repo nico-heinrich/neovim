@@ -19,6 +19,28 @@ return {
       -- Load friendly-snippets (includes HTML, CSS, JS snippets)
       require("luasnip.loaders.from_vscode").lazy_load()
       
+      -- Custom snippets for Svelte/Vue TypeScript
+      local s = luasnip.snippet
+      local t = luasnip.text_node
+      local i = luasnip.insert_node
+      local fmt = require("luasnip.extras.fmt").fmt
+      
+      luasnip.add_snippets("svelte", {
+        s("ts", fmt([[
+<script lang="ts">
+	{}
+</script>
+]], { i(1, "") })),
+      })
+      
+      luasnip.add_snippets("vue", {
+        s("ts", fmt([[
+<script lang="ts">
+	{}
+</script>
+]], { i(1, "") })),
+      })
+      
       cmp.setup({
         snippet = {
           expand = function(args)
@@ -36,19 +58,16 @@ return {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
           }),
+          -- Tab only for Copilot, not for autocompletion
           ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
+            if luasnip.expand_or_jumpable() then
               luasnip.expand_or_jump()
             else
               fallback()
             end
           end, { "i", "s" }),
           ["<S-Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
+            if luasnip.jumpable(-1) then
               luasnip.jump(-1)
             else
               fallback()
@@ -82,7 +101,10 @@ return {
       "rafamadriz/friendly-snippets",
     },
     config = function()
-      require("luasnip").setup()
+      require("luasnip").setup({
+        enable_autosnippets = true,
+        store_selection_keys = "<Tab>",
+      })
       require("luasnip.loaders.from_vscode").lazy_load()
     end,
   },

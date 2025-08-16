@@ -1,6 +1,6 @@
 return {
-  "WilliamHsieh/catppuccin.nvim",
+  "catppuccin/nvim",
   config = function()
-    vim.cmd("colorscheme catppuccin-macchiato")
+    vim.cmd("colorscheme catppuccin")
   end,
 }
