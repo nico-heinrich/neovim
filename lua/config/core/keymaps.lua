@@ -40,3 +40,10 @@ vim.keymap.set("n", "<leader>f", "<CMD>lua vim.lsp.buf.format({ async = true })<
 
 -- Terminal escape
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
+
+-- Completion keybindings (nvim-cmp handles these automatically)
+-- <C-Space> - Trigger completion
+-- <C-n>/<C-p> - Navigate completion items
+-- <CR> - Confirm selection
+-- <Tab> - Next item or expand snippet
+-- <S-Tab> - Previous item or jump snippet

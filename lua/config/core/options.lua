@@ -11,3 +11,6 @@ vim.o.cursorline = true
 vim.o.termguicolors = true
 vim.o.backspace = "indent,eol,start"
 vim.o.signcolumn = "yes"
+
+-- System clipboard integration
+vim.o.clipboard = "unnamedplus"
