@@ -2,14 +2,14 @@ return {
   "neovim/nvim-lspconfig",
   config = function()
     local lspconfig = require("lspconfig")
-    
+
     -- Set custom diagnostic signs with squares
-    local signs = { Error = " ■", Warn = " ■", Hint = " ■", Info = " ■" }
+    local signs = { Error = "", Warning = "", Hint = "", Information = "" }
     for type, icon in pairs(signs) do
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
-    
+
     -- Enable basic diagnostic display
     vim.diagnostic.config({
       virtual_lines = true,
@@ -17,7 +17,7 @@ return {
       underline = true,
       update_in_insert = false,
     })
-    
+
     lspconfig.lua_ls.setup({})
     lspconfig.jsonls.setup({})
     lspconfig.svelte.setup({})
