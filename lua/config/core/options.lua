@@ -11,6 +11,10 @@ vim.o.cursorline = true
 vim.o.termguicolors = true
 vim.o.backspace = "indent,eol,start"
 vim.o.signcolumn = "yes"
+vim.o.wrap = false
 
 -- System clipboard integration
 vim.o.clipboard = "unnamedplus"
+
+-- Enable diagnostics globally by default (virtual lines start disabled)
+vim.g.virtual_lines_enabled = false

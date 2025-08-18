@@ -40,6 +40,30 @@ vim.keymap.set("n", "<leader>f", function()
   require("conform").format({ async = true, lsp_fallback = true })
 end, { desc = "Format current buffer" })
 
+-- Toggle colorizer
+vim.keymap.set("n", "<leader>c", "<CMD>ColorizerToggle<CR>", { desc = "Toggle colorizer" })
+
+-- Toggle virtual lines (global) - keeps signs and underlines
+vim.keymap.set("n", "<leader>d", function()
+  if vim.g.virtual_lines_enabled then
+    vim.g.virtual_lines_enabled = false
+    vim.diagnostic.config({
+      virtual_lines = false,
+      underline = true,
+      update_in_insert = false,
+    })
+    print("Virtual lines disabled")
+  else
+    vim.g.virtual_lines_enabled = true
+    vim.diagnostic.config({
+      virtual_lines = true,
+      underline = true,
+      update_in_insert = false,
+    })
+    print("Virtual lines enabled")
+  end
+end, { desc = "Toggle virtual lines (global)" })
+
 -- Terminal escape
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
