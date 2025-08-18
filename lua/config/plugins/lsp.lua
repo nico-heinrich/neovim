@@ -33,9 +33,17 @@ return {
       },
     }
 
+    -- Svelte LSP with formatting enabled
+    lspconfig.svelte.setup({
+      capabilities = {
+        textDocument = {
+          formatting = true,
+        },
+      },
+    })
+
     lspconfig.lua_ls.setup(common_config)
     lspconfig.jsonls.setup(common_config)
-    lspconfig.svelte.setup(common_config)
     lspconfig.ts_ls.setup(common_config)
     lspconfig.html.setup(common_config)
     lspconfig.cssls.setup(common_config)
