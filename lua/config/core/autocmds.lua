@@ -4,7 +4,7 @@
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   callback = function()
-    local clients = vim.lsp.buf_get_clients()
+    local clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
     local has_formatter = false
     for _, client in pairs(clients) do
       if client.supports_method("textDocument/formatting") then
