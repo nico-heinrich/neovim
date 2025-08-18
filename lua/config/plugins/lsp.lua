@@ -8,10 +8,10 @@ return {
       virtual_lines = true,
       signs = {
         text = {
-          [vim.diagnostic.severity.ERROR] = "",
-          [vim.diagnostic.severity.WARN] = "",
-          [vim.diagnostic.severity.HINT] = "",
-          [vim.diagnostic.severity.INFO] = "",
+          [vim.diagnostic.severity.ERROR] = " ",
+          [vim.diagnostic.severity.WARN] = " ",
+          [vim.diagnostic.severity.HINT] = " ",
+          [vim.diagnostic.severity.INFO] = " ",
         },
         numhl = {
           [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
@@ -24,15 +24,21 @@ return {
       update_in_insert = false,
     })
 
-    lspconfig.lua_ls.setup({})
-    lspconfig.jsonls.setup({})
-    lspconfig.svelte.setup({})
-    lspconfig.ts_ls.setup({})
-    lspconfig.html.setup({})
-    lspconfig.cssls.setup({})
-    lspconfig.tailwindcss.setup({})
-    lspconfig.volar.setup({
-      filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact", "vue" },
-    })
+    -- Common LSP configuration that disables formatting
+    local common_config = {
+      capabilities = {
+        textDocument = {
+          formatting = false,
+        },
+      },
+    }
+
+    lspconfig.lua_ls.setup(common_config)
+    lspconfig.jsonls.setup(common_config)
+    lspconfig.svelte.setup(common_config)
+    lspconfig.ts_ls.setup(common_config)
+    lspconfig.html.setup(common_config)
+    lspconfig.cssls.setup(common_config)
+    lspconfig.tailwindcss.setup(common_config)
   end,
 }

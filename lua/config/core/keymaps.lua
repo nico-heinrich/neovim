@@ -36,7 +36,9 @@ vim.keymap.set("n", "<leader>dc", ":ClassyRemoveClass<CR>", { noremap = true, si
 vim.keymap.set("n", "<leader>rc", ":ClassyResetClass<CR>", { noremap = true, silent = true })
 
 -- Format buffer
-vim.keymap.set("n", "<leader>f", "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", { desc = "Format current buffer" })
+vim.keymap.set("n", "<leader>f", function()
+  require("conform").format({ async = true, lsp_fallback = true })
+end, { desc = "Format current buffer" })
 
 -- Terminal escape
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
