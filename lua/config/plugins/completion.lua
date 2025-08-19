@@ -15,25 +15,9 @@ return {
     config = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip")
-      -- Load friendly-snippets (includes HTML, CSS, JS snippets)
-      require("luasnip.loaders.from_vscode").lazy_load()
-      -- Custom snippets for Svelte/Vue TypeScript
-      local s = luasnip.snippet
-      local i = luasnip.insert_node
-      local fmt = require("luasnip.extras.fmt").fmt
-      luasnip.add_snippets("svelte", {
-        s("ts", fmt([[
-<script lang="ts">
-	{}
-</script>
-]], { i(1, "") })),
-      })
-      luasnip.add_snippets("vue", {
-        s("ts", fmt([[
-<script lang="ts">
-	{}
-</script>
-]], { i(1, "") })),
+      -- Load friendly-snippets but exclude Vue and Svelte specific snippets
+      require("luasnip.loaders.from_vscode").lazy_load({
+        exclude = { "vue", "svelte" }
       })
       cmp.setup({
         snippet = {
