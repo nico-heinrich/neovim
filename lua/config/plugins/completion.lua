@@ -15,10 +15,11 @@ return {
     config = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip")
-      -- Load friendly-snippets but exclude Vue and Svelte specific snippets
-      require("luasnip.loaders.from_vscode").lazy_load({
-        exclude = { "vue", "svelte" }
-      })
+      require("luasnip.loaders.from_vscode").lazy_load()
+      
+      -- Completely override Vue and Svelte filetypes to use HTML snippets
+      luasnip.filetype_set("vue", { "html" })
+      luasnip.filetype_set("svelte", { "html" })
       cmp.setup({
         snippet = {
           expand = function(args)
