@@ -1,24 +1,34 @@
+local prettier = { "prettierd", "prettier", stop_after_first = true }
+
 return {
   "stevearc/conform.nvim",
   event = { "BufWritePre" },
   cmd = { "ConformInfo" },
+  dependencies = {
+    "mason-org/mason.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+  },
   opts = {
-    -- Define formatters
+    default_format_opts = {
+      lsp_format = "fallback",
+    },
     formatters_by_ft = {
       lua = { "stylua" },
-      javascript = { "prettier" },
-      typescript = { "prettier" },
-      javascriptreact = { "prettier" },
-      typescriptreact = { "prettier" },
-      vue = { "prettier" },
-      css = { "prettier" },
-      scss = { "prettier" },
-      less = { "prettier" },
-      html = { "prettier" },
-      json = { "prettier" },
-      yaml = { "prettier" },
-      markdown = { "prettier" },
-      graphql = { "prettier" },
+      javascript = prettier,
+      typescript = prettier,
+      javascriptreact = prettier,
+      typescriptreact = prettier,
+      vue = prettier,
+      svelte = prettier,
+      css = prettier,
+      scss = prettier,
+      less = prettier,
+      html = prettier,
+      json = prettier,
+      jsonc = prettier,
+      yaml = prettier,
+      markdown = prettier,
+      graphql = prettier,
     },
     -- Set up format-on-save
     format_on_save = function(bufnr)

@@ -37,7 +37,7 @@ vim.keymap.set("n", "<leader>rc", ":ClassyResetClass<CR>", { noremap = true, sil
 
 -- Format buffer
 vim.keymap.set("n", "<leader>f", function()
-  require("conform").format({ async = true, lsp_fallback = true })
+  require("conform").format({ async = true, lsp_format = "fallback" })
 end, { desc = "Format current buffer" })
 
 -- Toggle colorizer

@@ -1,38 +1,34 @@
 return {
   "neovim/nvim-lspconfig",
   config = function()
-    local lspconfig = require("lspconfig")
-
-    -- Enable basic diagnostic display with custom signs (virtual lines disabled by default)
     vim.diagnostic.config({
       virtual_lines = false,
       underline = true,
       update_in_insert = false,
     })
 
-    -- Common LSP configuration that disables formatting
-    local common_config = {
-      capabilities = {
-        textDocument = {
-          formatting = false,
-        },
-      },
-    }
+    local function capabilities_without_formatting()
+      local caps = vim.lsp.protocol.make_client_capabilities()
+      caps.textDocument.formatting = false
+      return caps
+    end
 
-    -- Svelte LSP with formatting enabled
-    lspconfig.svelte.setup({
-      capabilities = {
-        textDocument = {
-          formatting = true,
-        },
-      },
-    })
+    local no_format = { capabilities = capabilities_without_formatting() }
 
-    lspconfig.lua_ls.setup(common_config)
-    lspconfig.jsonls.setup(common_config)
-    lspconfig.ts_ls.setup(common_config)
-    lspconfig.html.setup(common_config)
-    lspconfig.cssls.setup(common_config)
-    lspconfig.tailwindcss.setup(common_config)
+    for _, server in ipairs({
+      "lua_ls",
+      "jsonls",
+      "ts_ls",
+      "html",
+      "cssls",
+      "tailwindcss",
+    }) do
+      vim.lsp.config(server, no_format)
+      vim.lsp.enable(server)
+    end
+
+    -- Svelte keeps LSP formatting (conform handles other filetypes)
+    vim.lsp.config("svelte", {})
+    vim.lsp.enable("svelte")
   end,
 }
